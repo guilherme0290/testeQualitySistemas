@@ -6,6 +6,17 @@
 <div id="listaPessoas">
 
     <h1>Incluindo um Novo Cadastro</h1>
+
+
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
    
 <form id="formCadastrar" method="post" enctype="multipart/form-data" action="/ClienteNovo" >
  

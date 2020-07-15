@@ -36,8 +36,20 @@
                          ->join('dependentes','dependentes.id_cliente','=','clientes.id')
                          ->where('clientes.id','=', $id)
                          ->get(); --}}
+
+                         <form id="frmAdicionaDep" method="post" enctype="multipart/form-data" action="/novodependente/{{ $cli[0]->idcliente }}">
+
+                            @if ($errors->any())
+                               <div class="alert alert-danger">
+                                   <ul>
+                                       @foreach ($errors->all() as $error)
+                                           <li>{{ $error }}</li>
+                                       @endforeach
+                                   </ul>
+                               </div>
+                           @endif
                     
-                <form id="frmAdicionaDep" method="post" enctype="multipart/form-data" action="/novodependente/{{ $cli[0]->idcliente }}">
+                
                         
                         {{csrf_field()}}
                         <div class="agrupa mB mR">

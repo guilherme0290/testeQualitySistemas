@@ -28,10 +28,12 @@ class clienteDependente extends Controller
     
     public function store(Request $request,$id)
     {
-        $validator = Validator::make($request->all(), [
+        $validator = $request->validate([
             'cNomeDep' =>'required|string',
             'cDataNasc'=>'required|email',           
         ]);
+
+        
 
         $dep = new Dependente();    
         $dep ->nome = $request->input('cNomeDep');

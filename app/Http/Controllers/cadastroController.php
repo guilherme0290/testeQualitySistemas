@@ -27,12 +27,14 @@ class cadastroController extends Controller
     
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(), [
+        $validator = $request->validate([
             'cNome' =>'required|string',
             'cEmail'=>'required|email',
             'cFoto' => 'size:200',
             'cDataNasc' => 'required|date|before:120 years'
         ]);
+
+    
 
         $cli = new Cliente();    
         $cli ->nome = $request->input('cNome');
