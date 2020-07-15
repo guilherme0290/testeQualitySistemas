@@ -12,5 +12,23 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('cabeca');
 });
+
+
+Route::get('/listar', 'cadastroController@show');
+
+Route::get('/form', 'cadastroController@index');  
+
+//Route::get('/dependente{id}', 'clienteDependente@show');
+Route::get('/dependente/{id}', 'clienteDependente@show');
+
+Route::post('/ClienteNovo', 'cadastroController@store');
+
+Route::post('/novodependente/{id}','clienteDependente@store');
+
+
+
+
+
+
